@@ -56,12 +56,13 @@ class NewUser extends ActiveRecord implements IdentityInterface
         return $this->authKey;
     }
 
-    public function getId() {
-        return $this->id;
+    public function validateAuthKey($authKey)
+    {
+        return $this->authKey === $authKey;
     }
 
-    public function validateAuthKey($authKey) {
-       return $this->authKey = $authkey;
+    public function getId() {
+        return $this->id;
     }
 
     public static function findIdentity($id) {
