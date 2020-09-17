@@ -31,6 +31,9 @@ class MediaController extends \yii\web\Controller
 
     public function actionUpload()
     {
+        if(Yii::$app->user->isGuest){
+            return $this->redirect(['index']);
+        }else{
         $model = new Media();
 
         if ($model->load(Yii::$app->request->post())) {
@@ -56,6 +59,7 @@ class MediaController extends \yii\web\Controller
         return $this->render('upload', [
             'model' => $model,
         ]);
+        }
     }
 
 }
