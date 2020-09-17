@@ -34,6 +34,7 @@ class NewUser extends ActiveRecord implements IdentityInterface
         return [
             [['username', 'email', 'password'], 'required'],
             [['username', 'email'], 'string', 'max' => 80],
+            ['email', 'email'],
             [['password','authKey', 'accessToken'], 'string', 'max' => 255],
         ];
     }
@@ -83,5 +84,5 @@ class NewUser extends ActiveRecord implements IdentityInterface
 
     }
 
-    
+
 }
